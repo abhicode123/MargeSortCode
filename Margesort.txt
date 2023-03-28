@@ -72,7 +72,7 @@ public class Main{
             obj.li[i]=input.nextInt();
         }
         obj.display();
-        
+        obj.devide(obj.li,0,len-1);
         obj.display();
     }
 }
