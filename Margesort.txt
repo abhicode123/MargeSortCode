@@ -1,0 +1,78 @@
+//code for marge sort
+import java.util.Scanner;
+class Marge{
+    int size;
+    int li[];
+    Marge(int len){
+        size=len;
+        li=new int[size];
+    }
+    
+    void Sort(int[] li,int LB,int mid,int UB){
+        int llen=mid-LB+1;
+        int rlen=UB-mid;
+        int leftli[]=new int[llen];
+        int rightli[]=new int[rlen];
+        
+        for(int i=0;i<llen;i++){
+            leftli[i]=li[LB+i];
+        }
+        for(int j=0;j<rlen;j++){
+            rightli[j]=li[mid+j+1];
+        }
+        
+        int leftc=0;
+        int rightc=0;
+        int k=LB;
+        while(leftc<llen && rightc<rlen){
+            if(leftli[leftc]<rightli[rightc]){
+                li[k]=leftli[leftc];
+                leftc++;
+                k++;
+            }
+            else if(leftli[leftc]>rightli[rightc]){
+                li[k]=rightli[rightc];
+                rightc++;
+                k++;
+            }
+        }
+        while(leftc<llen){
+            li[k]=leftli[leftc];
+            leftc++;
+            k++;
+        }
+        while(rightc<rlen){
+            li[k]=rightli[rightc];
+            rightc++;
+            k++;
+        }
+    }
+    
+    void devide(int[] li,int LB,int UB){
+        if(LB<UB){
+            int mid=(UB+LB)/2;
+            devide(li,LB,mid);
+            devide(li,mid+1,UB);
+            Sort(li,LB,mid,UB);
+        }
+    }
+    void display(){
+        for(int i=0;i<size;i++){
+            System.out.print(li[i]+" ");
+        }
+        System.out.println();
+    }
+}
+public class Main{
+    public static void main(String[] args){
+        Scanner input=new Scanner(System.in);
+        int len=input.nextInt();
+        Marge obj=new Marge(len);
+        for(int i=0;i<len;i++){
+            obj.li[i]=input.nextInt();
+        }
+        obj.display();
+        
+        obj.display();
+    }
+}
