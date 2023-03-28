@@ -65,11 +65,11 @@ class Marge{
 }
 public class Main{
     public static void main(String[] args){
-        Scanner input=new Scanner(System.in);
-        int len=input.nextInt();
+        Scanner sc=new Scanner(System.in);
+        int len=sc.nextInt();
         Marge obj=new Marge(len);
         for(int i=0;i<len;i++){
-            obj.li[i]=input.nextInt();
+            obj.li[i]=sc.nextInt();
         }
         obj.display();
         obj.devide(obj.li,0,len-1);
