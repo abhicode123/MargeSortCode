@@ -74,5 +74,7 @@ public class Main{
         obj.display();
         obj.devide(obj.li,0,len-1);
         obj.display();
+        System.out.print("complete merge sort");
     }
+    
 }
